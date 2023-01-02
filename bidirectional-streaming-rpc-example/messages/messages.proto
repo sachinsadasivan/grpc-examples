@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "github.com/sachinsadasivan/bidirectional-streaming-rpc-example/messages"; 
+ 
+message FileStreamingRequest {
+	bytes data = 1;
+ }
+ 
+ message FileStreamingResponse {
+	bytes data = 1;
+}
+ 
+ service StreamingService {
+	rpc StreamData (stream FileStreamingRequest) returns (stream FileStreamingResponse) {}
+ }
